@@ -1,4 +1,6 @@
-package bai2.entities;
+package bai4;
+
+import java.security.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,21 +13,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@Entity
-//@Table(name="profiles")
+@Entity
+@Table
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Profile {
-	private String avatar;
-	@Column(columnDefinition = "text")
-	private String description;
-//	?????
-	@Id
-	private long id;
+public class OfficeAssignment {
+	@Column(name="Location")
+	private String location;
+	@Column(name="Timestamp")
+	private Timestamp timestamp;
+//	kha nang cao cho nay loi
 	@OneToOne
-	@JoinColumn(name="staff_id")
-	private Staff staff;
-	
+	@JoinColumn(name="InstructorID")
+	@Id
+	private Instructor instructor;
 }
