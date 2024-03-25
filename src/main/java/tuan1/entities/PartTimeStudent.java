@@ -16,8 +16,8 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "parttime_students")
+//@Entity
+//@Table(name = "parttime_students")
 public class PartTimeStudent extends Student{
 	
 	private String supervisor;

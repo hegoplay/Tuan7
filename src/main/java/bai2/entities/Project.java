@@ -1,27 +1,32 @@
-package tuan1.entities;
+package bai2.entities;
+
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
+
+@Entity
+@Table(name = "projects")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-//@Entity
-//@Table(name = "courses")
-public class Course {
+public class Project {
+	@Column(columnDefinition = "float")
+	private double budget;
 	@Id
-	@Column(name = "course_id")
+	@Column(name="project_id")
 	private String id;
-	@Column(columnDefinition = "nvarchar(100)", unique=true,nullable = false)
+	@Column(name="project_name")
 	private String name;
-	private int credits;
+	@ManyToMany(mappedBy = "projects")
+	private Set<Staff> staffs;
 }

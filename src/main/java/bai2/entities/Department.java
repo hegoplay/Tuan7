@@ -1,33 +1,37 @@
-package tuan1.entities;
+package bai2.entities;
+
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
+@Entity
+@Table(name = "departments")
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-//@Entity
-//@Table(name = "classes")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Clazz {
-	@EqualsAndHashCode.Include
+public class Department {
 	@Id
-	@Column(name="class_id")
+	@Column(name = "dept_id",length=50)
+	@EqualsAndHashCode.Include
 	private String id;
-	@Column(columnDefinition = "nvarchar(100)",nullable = false)
-	private String name;
-	private int noOfStudents;
 	
+	private String location;
+	@Column(name = "dept_name")
+	private String name;
+	
+	@OneToMany(mappedBy = "dept")
+	Set<Staff> staffs;
 	
 	
 }

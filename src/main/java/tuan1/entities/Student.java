@@ -31,9 +31,9 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name="students")
-@Inheritance(strategy = InheritanceType.JOINED)
-@Entity
+//@Table(name="students")
+//@Inheritance(strategy = InheritanceType.JOINED)
+//@Entity
 public class Student {
 	@Id
 	@Column(name = "student_id")

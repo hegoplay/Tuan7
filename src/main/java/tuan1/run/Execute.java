@@ -1,7 +1,11 @@
 package tuan1.run;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -37,16 +41,14 @@ public class Execute {
 //						"2nd", 
 //						2019, 
 //						8));
-		CourseDAO.insert(new Course("1", "AWS", 4));
-		ClazzDAO.insert(new Clazz("B39", "B3.9", 45));
-		ClazzProfileDAO.insert(new ClazzProfile(LocalDate.now(), "Lop KHMT", "KHMTB309", ClazzDAO.findById("B39")));
-		StudentDAO.insert(new PartTimeStudent("ST01", "Redbull", "dxht@gmail.com", LocalDate.now(), 
-				Stream.of("0944713015").collect(Collectors.toSet()), 
-				new Address("street 6", "HCMC", "TDC", 713000), Gender.MALE, ClazzDAO.findById("B39"),"M. BNTT"));
-		System.out.println(CourseDAO.findById("1"));
-		System.out.println(ClazzDAO.findById("1"));
-		System.out.println(StudentDAO.findById("ST01"));
+		Constant.inputValues();
+		StudentDAO.getSisoByLophoc();
+		Map<Student, Float> ls = StudentDAO.listSinhvienDiemTB();
 		
+		for(Map.Entry<Student,Float> x : ls.entrySet()) {
+			System.out.println(x.getKey());
+		}
 		Constant.closeConnection();
 	}
+
 }

@@ -18,8 +18,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Entity
-@Table(name = "enrollments")
+//@Entity
+//@Table(name = "enrollments")
 @EqualsAndHashCode
 public class Enrollment {
 	@Id

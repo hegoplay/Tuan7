@@ -1,6 +1,4 @@
-package tuan1.entities;
-
-import java.time.LocalDate;
+package bai2.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,24 +10,22 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-
+@Entity
+@Table(name="profiles")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-//@Table(name = "classes_profiles")
-//@Entity
-public class ClazzProfile {
-	private LocalDate createDate;
-	@Column(columnDefinition = "nvarchar(255)")
+@AllArgsConstructor
+public class Profile {
+	private String avatar;
+	@Column(columnDefinition = "text")
 	private String description;
+//	?????
 	@Id
-	@Column(name = "profile_id")
-	private String id;
+	private long id;
 	@OneToOne
-	@JoinColumn(name="class_id",unique = true,nullable = false)
-	private Clazz clazz;
+	@JoinColumn(name="staff_id")
+	private Staff staff;
+	
 }
