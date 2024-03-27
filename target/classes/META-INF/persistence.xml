@@ -14,7 +14,7 @@ https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
 			<property name="jakarta.persistence.jdbc.driver"
 				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 			<property name="jakarta.persistence.jdbc.url"
-				value="jdbc:sqlserver://localhost:1433;databaseName=abc;trustServerCertificate=true" />
+				value="jdbc:sqlserver://localhost:1433;databaseName=BikeStores;trustServerCertificate=true" />
 			<property name="jakarta.persistence.jdbc.user" value="sa" />
 			<property name="jakarta.persistence.jdbc.password"
 				value="123456" />
@@ -23,7 +23,7 @@ https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
 			<!-- Automatically export the schema -->
 			<property
 				name="jakarta.persistence.schema-generation.database.action"
-				value="drop-and-create" />
+				value="none" />
 
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
