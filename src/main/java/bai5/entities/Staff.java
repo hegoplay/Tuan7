@@ -7,6 +7,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -19,8 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-// I want to rename id to staff_id
-
+@NamedQuery(name = "Staff.findAll", query = "SELECT s FROM Staff s")
 public class Staff extends Person {
 	@Column(columnDefinition = "TINYINT", nullable = false)
 	private byte active;

@@ -4,11 +4,15 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,11 +22,15 @@ import lombok.ToString;
 @Table(name = "products")
 @Getter
 @Setter
-@ToString
+@ToString(exclude = { "items", "stocks" })
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")
 public class Product {
 	@Id
 	@Column(name = "product_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@EqualsAndHashCode.Include
 	private int id;
 	@Column(name = "product_name", nullable = true)
 	private String name;

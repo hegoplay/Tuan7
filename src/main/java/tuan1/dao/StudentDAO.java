@@ -73,7 +73,6 @@ public class StudentDAO {
 		Join<Object, Object> join = enrollRoot.join("student",JoinType.RIGHT);
 		
 		
-		
 		CriteriaQuery<Tuple> select = cq.multiselect(
 				enrollRoot.get("student"),
 				cb.avg(enrollRoot.get("score")));

@@ -6,7 +6,7 @@ import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -19,8 +19,9 @@ import lombok.ToString;
 @AttributeOverride(name = "id", column = @Column(name = "customer_id"))
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString(callSuper = true,exclude = "orders")
 @NoArgsConstructor
+@NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c")
 public class Customer extends Person {
 	@Embedded
 	private Address address;

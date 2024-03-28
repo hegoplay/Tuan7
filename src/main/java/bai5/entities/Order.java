@@ -5,9 +5,12 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -19,11 +22,13 @@ import lombok.ToString;
 @Table(name = "orders")
 @Getter
 @Setter
-@ToString
+@ToString(exclude = { "items" })
 @NoArgsConstructor
+@NamedQuery(name = "Order.findAll", query = "SELECT o FROM Order o")
 public class Order {
 	@Id
 	@Column(name = "order_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name = "order_status", columnDefinition = "TINYINT", nullable = true)
 	private byte orderStatus;
